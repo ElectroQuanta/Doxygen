@@ -1,29 +1,29 @@
-- [Preamble](#org4b63e38)
-- [Source code documentation](#org513001e)
-  - [Intro](#orgf005291)
-    - [Goal](#orgccdcdb6)
-  - [Overview](#orgfeca3f0)
-  - [Available tools](#org2ec651d)
-  - [Doxygen](#orge452fc1)
-    - [Intro](#orgee5f7e6)
-    - [Internal operation](#org3be9e70)
-    - [Installation](#org6904ba7)
-    - [Configuration](#org159aea6)
-    - [Build documentation](#org4c36435)
-    - [Output analysis <code>[0/3]</code>](#org7e26a64)
-    - [Usage](#org2ce675c)
-- [Plantuml](#org2bea328)
-    - [Setup <code>[0/6]</code>](#org2a72f23)
-    - [Workflow <code>[0/4]</code>](#org48eac37)
-    - [Sequence diagrams](#org920db27)
-    - [Class Diagrams](#orge076dff)
-    - [Use case diagrams](#org2a05415)
-    - [State Diagrams](#orgf5debfe)
-- [Makefiles](#org98b8ef4)
+- [Preamble](#org7e18463)
+- [Source code documentation](#orgee86ed6)
+  - [Intro](#org2b9a1c6)
+    - [Goal](#org61cce6a)
+  - [Overview](#orgc463fc9)
+  - [Available tools](#org26b5308)
+  - [Doxygen](#orgf375c59)
+    - [Intro](#orgb446abd)
+    - [Internal operation](#org1027b3b)
+    - [Installation](#org6f2e005)
+    - [Configuration](#org303991d)
+    - [Build documentation](#org778464b)
+    - [Output analysis <code>[0/3]</code>](#org698987f)
+    - [Usage](#org7dfa546)
+- [Plantuml](#orgdf118a3)
+    - [Setup <code>[0/6]</code>](#org8e9f7fc)
+    - [Workflow <code>[0/4]</code>](#org5cc9eb2)
+    - [Sequence diagrams](#org6931df8)
+    - [Class Diagrams](#orgfc90be9)
+    - [Use case diagrams](#orgd3f8dd2)
+    - [State Diagrams](#orga3f87c9)
+- [Makefiles](#org499fa74)
 
 
 
-<a id="org4b63e38"></a>
+<a id="org7e18463"></a>
 
 # Preamble
 
@@ -34,17 +34,17 @@
     ```
 
 
-<a id="org513001e"></a>
+<a id="orgee86ed6"></a>
 
 # Source code documentation
 
 
-<a id="orgf005291"></a>
+<a id="org2b9a1c6"></a>
 
 ## Intro
 
 
-<a id="orgccdcdb6"></a>
+<a id="org61cce6a"></a>
 
 ### Goal
 
@@ -57,7 +57,7 @@
     4.  **Code style enforcement**: the source code documentation tools requires specific comment syntax, which forces the developer to follow a strict code style. Having a code style standard is specially useful on large project teams.
 
 
-<a id="orgfeca3f0"></a>
+<a id="orgc463fc9"></a>
 
 ## Overview
 
@@ -82,7 +82,7 @@ An automatic source code documentation tool:
 3.  Generate the documentation from the tags ![img](sec/img/doxygen-output-example.png)
 
 
-<a id="org2ec651d"></a>
+<a id="org26b5308"></a>
 
 ## Available tools
 
@@ -96,12 +96,12 @@ There are several automatic source code documentation tools, typically language-
 6.  `Sphinx`: Python, C/C++, Ruby, etc.
 
 
-<a id="orge452fc1"></a>
+<a id="orgf375c59"></a>
 
 ## Doxygen     :Important:
 
 
-<a id="orgee5f7e6"></a>
+<a id="orgb446abd"></a>
 
 ### Intro
 
@@ -115,7 +115,7 @@ There are several automatic source code documentation tools, typically language-
     2.  **Assistance in reverse engineering SW**: You can configure doxygen to extract the code structure from undocumented source files. This is very useful to quickly find your way in large source distributions. Doxygen can also visualize the relations between the various elements by means of include dependency graphs, inheritance diagrams, and collaboration diagrams, which are all generated automatically.
 
 
-<a id="org3be9e70"></a>
+<a id="org1027b3b"></a>
 
 ### Internal operation
 
@@ -130,7 +130,7 @@ There are several automatic source code documentation tools, typically language-
 ![img](sec/img/doxygen-infoflow.png)
 
 
-<a id="org6904ba7"></a>
+<a id="org6f2e005"></a>
 
 ### Installation
 
@@ -191,7 +191,7 @@ There are several automatic source code documentation tools, typically language-
             ```
 
 
-<a id="org159aea6"></a>
+<a id="org303991d"></a>
 
 ### Configuration
 
@@ -235,7 +235,7 @@ There are several automatic source code documentation tools, typically language-
             3.  `USE_MFILE_AS_MAINPAGE` `../../readme.md`
 
 
-<a id="org4c36435"></a>
+<a id="org778464b"></a>
 
 ### Build documentation
 
@@ -260,7 +260,7 @@ There are several automatic source code documentation tools, typically language-
         ```
 
 
-<a id="org7e26a64"></a>
+<a id="org698987f"></a>
 
 ### Output analysis <code>[0/3]</code>
 
@@ -269,7 +269,7 @@ There are several automatic source code documentation tools, typically language-
 3.  [ ] Explore `Files`
 
 
-<a id="org2ce675c"></a>
+<a id="org7dfa546"></a>
 
 ### Usage
 
@@ -383,14 +383,14 @@ Now it's important to understand how to annotate source code files.
             ```
 
 
-<a id="org2bea328"></a>
+<a id="orgdf118a3"></a>
 
 # Plantuml
 
 [PlantUML](https://plantuml.com/) is a tool for quickly drawing diagrams from text based descriptions. It is specially adequate for sequence diagrams, as draw.io is not very fluid.
 
 
-<a id="org2a72f23"></a>
+<a id="org8e9f7fc"></a>
 
 ### Setup <code>[0/6]</code>
 
@@ -410,7 +410,7 @@ Now it's important to understand how to annotate source code files.
 6.  [ ] Check the generate png file: `output/test.png`
 
 
-<a id="org48eac37"></a>
+<a id="org5cc9eb2"></a>
 
 ### Workflow <code>[0/4]</code>
 
@@ -424,7 +424,7 @@ Now it's important to understand how to annotate source code files.
 4.  [ ] Check the generate png file: `output/test.png`
 
 
-<a id="org920db27"></a>
+<a id="org6931df8"></a>
 
 ### Sequence diagrams
 
@@ -941,7 +941,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantuml/seq-diag/examples/all-together.png)
 
 
-<a id="orge076dff"></a>
+<a id="orgfc90be9"></a>
 
 ### Class Diagrams
 
@@ -966,7 +966,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantum/class/class-test.png)
 
 
-<a id="org2a05415"></a>
+<a id="orgd3f8dd2"></a>
 
 ### Use case diagrams
 
@@ -999,7 +999,7 @@ Now it's important to understand how to annotate source code files.
     <diags/plantuml/usecases/usecase-test>
 
 
-<a id="orgf5debfe"></a>
+<a id="orga3f87c9"></a>
 
 ### State Diagrams
 
@@ -1023,7 +1023,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantuml/state-machine/state-diag.png)
 
 
-<a id="org98b8ef4"></a>
+<a id="org499fa74"></a>
 
 # Makefiles
 

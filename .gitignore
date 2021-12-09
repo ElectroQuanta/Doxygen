@@ -25,7 +25,7 @@ test
 Doxyfile
 code/doc/doxygen/
 code/doc/Diagrams/
-sec/img/
+#sec/img/
 *.pdf
 *.tex
 *.db
