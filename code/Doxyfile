@@ -1073,7 +1073,7 @@ FILTER_SOURCE_PATTERNS =
 # and want to reuse the introduction page also for the doxygen output.
 
 # We're invoking the Doxyfile from the makefile - UPDATE the path accordingly
-USE_MDFILE_AS_MAINPAGE = readme.md
+USE_MDFILE_AS_MAINPAGE = readme-doxy.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing

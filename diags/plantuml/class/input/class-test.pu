@@ -1,0 +1,39 @@
+
+    skinparam classAttributeIconSize 0
+
+    Class01 "1" *-- "many" Class02 : contains
+    Class03 o-- Class04 : aggregation
+    Class05 --> "1" Class06
+
+    class Dum {
+    {static} String static
+    {abstract} void methods-abstract()
+    }
+
+    class Flight {
+    -flightNumber : int
+    -departureTime : Date
+    -data : String
+    +methods(arg1:int, arg2:string) : void
+    }
+  note top of Flight : default class\ndiagram.
+
+    abstract class AbstractList
+    abstract AbstractCollection
+    interface List
+    interface Collection
+    List <|-- AbstractList
+    Collection <|-- AbstractCollection
+    Collection <|- List
+    AbstractCollection <|- AbstractList
+    AbstractList <|-- ArrayList
+    class ArrayList {
+    Object[] elementData
+    size()
+    }
+    enum TimeUnit {
+    DAYS
+    HOURS
+    MINUTES
+    }
+    annotation SuppressWarnings
