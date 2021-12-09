@@ -22,7 +22,7 @@ code/src/tests
 code/versions
 test
 # ignore documentation files
-Doxyfile
+# Doxyfile
 code/doc/doxygen/
 code/doc/Diagrams/
 #sec/img/
