@@ -1,29 +1,32 @@
-- [Preamble](#org7e18463)
-- [Source code documentation](#orgee86ed6)
-  - [Intro](#org2b9a1c6)
-    - [Goal](#org61cce6a)
-  - [Overview](#orgc463fc9)
-  - [Available tools](#org26b5308)
-  - [Doxygen](#orgf375c59)
-    - [Intro](#orgb446abd)
-    - [Internal operation](#org1027b3b)
-    - [Installation](#org6f2e005)
-    - [Configuration](#org303991d)
-    - [Build documentation](#org778464b)
-    - [Output analysis <code>[0/3]</code>](#org698987f)
-    - [Usage](#org7dfa546)
-- [Plantuml](#orgdf118a3)
-    - [Setup <code>[0/6]</code>](#org8e9f7fc)
-    - [Workflow <code>[0/4]</code>](#org5cc9eb2)
-    - [Sequence diagrams](#org6931df8)
-    - [Class Diagrams](#orgfc90be9)
-    - [Use case diagrams](#orgd3f8dd2)
-    - [State Diagrams](#orga3f87c9)
-- [Makefiles](#org499fa74)
+- [Preamble](#org55ae75c)
+- [Source code documentation](#org067a00a)
+  - [Intro](#org03a2830)
+    - [Goal](#org43ecbcf)
+  - [Overview](#orgb7284bc)
+  - [Available tools](#org0fbc084)
+  - [Doxygen](#org7184937)
+    - [Intro](#org90eb6da)
+    - [Projects Using Doxygen](#org81c5141)
+    - [Workflow <code>[0/3]</code>](#org200c5a6)
+    - [Internal operation](#org378f790)
+    - [Installation](#org0aca14a)
+    - [Configuration](#orge41bf54)
+    - [Build documentation](#org14e8e5a)
+    - [Output analysis <code>[0/3]</code>](#org377285e)
+    - [Usage](#org79b65cf)
+    - [Exercise (15 mins) <code>[0/4]</code>](#org12cddf3)
+- [Plantuml](#orgac8869b)
+    - [Setup <code>[0/6]</code>](#org95871a7)
+    - [Workflow <code>[0/4]</code>](#org48514b0)
+    - [Sequence diagrams](#orgb1d4fc7)
+    - [Class Diagrams](#orgec29e0a)
+    - [Use case diagrams](#org5627b8f)
+    - [State Diagrams](#org53a00e3)
+- [Makefiles](#orgc93e50b)
 
 
 
-<a id="org7e18463"></a>
+<a id="org55ae75c"></a>
 
 # Preamble
 
@@ -34,17 +37,17 @@
     ```
 
 
-<a id="orgee86ed6"></a>
+<a id="org067a00a"></a>
 
 # Source code documentation
 
 
-<a id="org2b9a1c6"></a>
+<a id="org03a2830"></a>
 
 ## Intro
 
 
-<a id="org61cce6a"></a>
+<a id="org43ecbcf"></a>
 
 ### Goal
 
@@ -57,7 +60,7 @@
     4.  **Code style enforcement**: the source code documentation tools requires specific comment syntax, which forces the developer to follow a strict code style. Having a code style standard is specially useful on large project teams.
 
 
-<a id="orgc463fc9"></a>
+<a id="orgb7284bc"></a>
 
 ## Overview
 
@@ -82,7 +85,7 @@ An automatic source code documentation tool:
 3.  Generate the documentation from the tags ![img](sec/img/doxygen-output-example.png)
 
 
-<a id="org26b5308"></a>
+<a id="org0fbc084"></a>
 
 ## Available tools
 
@@ -96,12 +99,12 @@ There are several automatic source code documentation tools, typically language-
 6.  `Sphinx`: Python, C/C++, Ruby, etc.
 
 
-<a id="orgf375c59"></a>
+<a id="org7184937"></a>
 
 ## Doxygen     :Important:
 
 
-<a id="orgb446abd"></a>
+<a id="org90eb6da"></a>
 
 ### Intro
 
@@ -115,7 +118,45 @@ There are several automatic source code documentation tools, typically language-
     2.  **Assistance in reverse engineering SW**: You can configure doxygen to extract the code structure from undocumented source files. This is very useful to quickly find your way in large source distributions. Doxygen can also visualize the relations between the various elements by means of include dependency graphs, inheritance diagrams, and collaboration diagrams, which are all generated automatically.
 
 
-<a id="org1027b3b"></a>
+<a id="org81c5141"></a>
+
+### Projects Using Doxygen
+
+[src](https://www.doxygen.nl/projects.html)
+
+1.  [FreeRTOS](http://freertoshal.github.io/doxygen/): **IMPORTANT**
+2.  FLAC
+3.  GraphViz
+4.  LLVM
+5.  [C++ REST SDK](https://microsoft.github.io/cpprestsdk/index.html)
+
+
+<a id="org200c5a6"></a>
+
+### Workflow <code>[0/3]</code>
+
+1.  [ ] Annotate source code
+    
+    ```c
+    /**
+     * @brief App controller: handles all application's logic
+     * @param app - an initialized application instance
+     * @return an integer signaling the execution state
+     *
+     * Its the execution loop controlling the FSM machine behind the application's
+     * logic. It starts in S_Login state. When end user quits the application,
+     * the databases are saved, for future restoration at subsequent program
+     * executions.
+     */
+    int App_exec(App_T app);
+    ```
+2.  [ ] Run doxygen
+3.  [ ] Inspect output
+    
+    ![img](sec/img/doxygen-output-example.png)
+
+
+<a id="org378f790"></a>
 
 ### Internal operation
 
@@ -130,7 +171,7 @@ There are several automatic source code documentation tools, typically language-
 ![img](sec/img/doxygen-infoflow.png)
 
 
-<a id="org6f2e005"></a>
+<a id="org0aca14a"></a>
 
 ### Installation
 
@@ -191,7 +232,7 @@ There are several automatic source code documentation tools, typically language-
             ```
 
 
-<a id="org303991d"></a>
+<a id="orge41bf54"></a>
 
 ### Configuration
 
@@ -235,7 +276,7 @@ There are several automatic source code documentation tools, typically language-
             3.  `USE_MFILE_AS_MAINPAGE` `../../readme.md`
 
 
-<a id="org778464b"></a>
+<a id="org14e8e5a"></a>
 
 ### Build documentation
 
@@ -260,7 +301,7 @@ There are several automatic source code documentation tools, typically language-
         ```
 
 
-<a id="org698987f"></a>
+<a id="org377285e"></a>
 
 ### Output analysis <code>[0/3]</code>
 
@@ -269,7 +310,7 @@ There are several automatic source code documentation tools, typically language-
 3.  [ ] Explore `Files`
 
 
-<a id="org7dfa546"></a>
+<a id="org79b65cf"></a>
 
 ### Usage
 
@@ -383,14 +424,27 @@ Now it's important to understand how to annotate source code files.
             ```
 
 
-<a id="orgdf118a3"></a>
+<a id="org12cddf3"></a>
+
+### Exercise (15 mins) <code>[0/4]</code>
+
+1.  [ ] Create a new module for anything you like
+    -   try to `#include` any of the previous modules, e.g., `fifo`, `list`, `Menu`
+    -   Create a header file with the public interface and annotate it
+    -   Create the respective implementation file with the private interface and annotate it
+2.  [ ] Modify the readme file to explain why you added the module
+3.  [ ] Run doxygen
+4.  [ ] Inspect the generated documentation
+
+
+<a id="orgac8869b"></a>
 
 # Plantuml
 
 [PlantUML](https://plantuml.com/) is a tool for quickly drawing diagrams from text based descriptions. It is specially adequate for sequence diagrams, as draw.io is not very fluid.
 
 
-<a id="org8e9f7fc"></a>
+<a id="org95871a7"></a>
 
 ### Setup <code>[0/6]</code>
 
@@ -410,7 +464,7 @@ Now it's important to understand how to annotate source code files.
 6.  [ ] Check the generate png file: `output/test.png`
 
 
-<a id="org5cc9eb2"></a>
+<a id="org48514b0"></a>
 
 ### Workflow <code>[0/4]</code>
 
@@ -424,7 +478,7 @@ Now it's important to understand how to annotate source code files.
 4.  [ ] Check the generate png file: `output/test.png`
 
 
-<a id="org6931df8"></a>
+<a id="orgb1d4fc7"></a>
 
 ### Sequence diagrams
 
@@ -941,7 +995,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantuml/seq-diag/examples/all-together.png)
 
 
-<a id="orgfc90be9"></a>
+<a id="orgec29e0a"></a>
 
 ### Class Diagrams
 
@@ -966,7 +1020,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantum/class/class-test.png)
 
 
-<a id="orgd3f8dd2"></a>
+<a id="org5627b8f"></a>
 
 ### Use case diagrams
 
@@ -999,7 +1053,7 @@ Now it's important to understand how to annotate source code files.
     <diags/plantuml/usecases/usecase-test>
 
 
-<a id="orga3f87c9"></a>
+<a id="org53a00e3"></a>
 
 ### State Diagrams
 
@@ -1023,7 +1077,7 @@ Now it's important to understand how to annotate source code files.
     ![img](diags/plantuml/state-machine/state-diag.png)
 
 
-<a id="org499fa74"></a>
+<a id="orgc93e50b"></a>
 
 # Makefiles
 
