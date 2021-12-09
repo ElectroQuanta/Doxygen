@@ -1,0 +1,72 @@
+  @startuml
+  ' ---------- SETUP ----------------
+  ' strict uml style and hide footboxes
+  skinparam style strictuml
+  hide footbox
+  ' for anchors and duration this may be required (uncomment)
+  ' !pragma teoz true
+
+  ' ---------- Declaring participants
+  ' participant Participant as Foo
+  actor User
+  box "MDO-L" #LightBlue
+  boundary "Gesture Recognition Engine" as GRE
+  control "UI Engine" as UIE
+  actor "Local System \nBack-End" as LS
+  endbox
+  ' entity      Entity      as Foo4
+  ' database    Database    as Foo5
+  ' collections Collections as Foo6
+  ' queue       Queue       as Foo7
+  ' Foo -> Foo1 : To actor 
+  ' Foo -> Foo2 : To boundary
+  ' Foo -> Foo3 : To control
+  ' Foo -> Foo4 : To entity
+  ' Foo -> Foo5 : To database
+  ' Foo -> Foo6 : To collections
+  ' Foo -> Foo7: To queue
+
+  ' async message
+== Activate camera feed ==
+  User ->> LS: User in range
+  activate User
+  activate LS
+  LS -> LS: activate camera
+
+  par
+    loop while (user in range && ! user_timeout)
+	LS -> UIE: grab frame from camera and display it on window
+	activate UIE
+	UIE -> User: visual feedback
+    end
+    == Identify User gesture ==
+    User ->> GRE: gesture
+    activate GRE
+    GRE -> LS: gesture recognized
+    deactivate GRE
+    LS -> LS: process gesture callback
+    == Multimedia mode ==
+    alt Select Image Filter
+    LS -> UIE: show Image Filter view
+    UIE -> User: visual feedback
+    ref over User, GRE, UIE, LS: Image Filter
+' -------
+    else Take Pic
+    LS -> UIE: show Pic view
+    UIE -> User: visual feedback
+    ref over User, GRE, UIE, LS: Picture mode
+' -------
+    else Create GIF
+    LS -> UIE: show GIF view
+    UIE -> User: visual feedback
+    ref over User, GRE, UIE, LS: GIF mode
+    '' LS -> LS: process gesture \ncallback
+    '' LS -> UIE: provide output
+    '' UIE -> User: visual feedback
+    ' end alt
+    end 
+' end par
+  end
+		
+
+  @enduml

@@ -1,0 +1,19 @@
+@startuml
+' comments as needed
+' lost message
+Bob ->x Alice 
+' sync message
+Bob -> Alice 
+' async message
+Bob ->> Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+
+Bob ->o Alice
+Bob o\\-- Alice
+
+' bidirectional message
+Bob <-> Alice
+Bob <->o Alice
+@enduml

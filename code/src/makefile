@@ -71,8 +71,14 @@ CFLAGS=-Wall #-W -ansi -pedantic # options passed to the compiler
 RM=rm -rf
 
 # documentation
-DOXYGEN=/Applications/Doxygen.app/Contents/Resources/doxygen
+DOXYGEN=/usr/local/bin/doxygen
 DOXYFILE=../Doxyfile
+
+# plantuml
+PLANTUML=${HOME}/plantuml.jar
+PLANTUML_DIAGS_DIR=../../diags/plantuml/
+PLANTUML_SEQ_INPUT_DIR=${PLANTUML_DIAGS_DIR}/seq-diag/input/
+PLANTUML_SEQ_OUTPUT_DIR=../output/
 
 # Databases
 DB = $(wildcard *.db)
@@ -118,7 +124,7 @@ install: all clean
 	@mv $(BIN_DIR) ../
 
 
-.PHONY: clean mrproper clean-all doc
+.PHONY: clean mrproper clean-all doc pu-seq
 clean-all: clean mrproper
 clean: 
 # @- $(RM) *.o # this does not work	
@@ -132,5 +138,10 @@ mrproper: clean
 doc:
 	@echo "Generating documentation"
 	@$(DOXYGEN) $(DOXYFILE)
+
+# PLANTUML - Seq diags
+pu-seq:
+	@echo "Generating sequence diagrams"
+	@java -jar $(PLANTUML) -o "$(PLANTUML_SEQ_OUTPUT_DIR)" "$(PLANTUML_SEQ_INPUT_DIR)"
 
 

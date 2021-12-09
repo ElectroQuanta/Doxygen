@@ -1,0 +1,5 @@
+@startuml
+actor Bob #Red/Yellow
+actor Alice #FF0000/FFFF00
+Alice -> Bob : hello
+@enduml
