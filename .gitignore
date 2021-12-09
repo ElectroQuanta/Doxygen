@@ -1,0 +1,31 @@
+# ignore all .DS_Store files
+.DS_Stor*
+/#readme.org#
+# ignore temp files
+*~
+# ignore doc files
+*.org
+readme.html
+# ignore compilation files
+*.o
+*.el
+src/Makefile
+src/Electric-gym
+# ignore the designated subfolders
+/bin
+/obj
+# ignore old files .old
+*.old
+# ignore gdb files and tests folder
+*.dSYM
+code/src/tests
+code/versions
+test
+# ignore documentation files
+Doxyfile
+code/doc/doxygen/
+code/doc/Diagrams/
+*.pdf
+*.tex
+*.db
+*.html
